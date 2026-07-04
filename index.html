@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Budget Planner</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for clean modern icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <main class="budget-container">
+        <header class="budget-header">
+            <h1><i class="fa-solid fa-wallet"></i> WealthFlow</h1>
+            <p>Smart Expense & Budget Tracker</p>
+        </header>
+
+        <!-- Dashboard Balance Cards -->
+        <section class="dashboard-grid">
+            <div class="card total-budget">
+                <h3>Total Budget</h3>
+                <p id="budget-display">$0.00</p>
+            </div>
+            <div class="card total-expenses">
+                <h3>Expenses</h3>
+                <p id="expense-display">$0.00</p>
+            </div>
+            <div class="card net-balance" id="balance-card">
+                <h3>Net Balance</h3>
+                <p id="balance-display">$0.00</p>
+            </div>
+        </section>
+
+        <!-- Input Section Grid -->
+        <section class="management-grid">
+            <!-- Set Budget Form -->
+            <div class="panel">
+                <h2>Set Monthly Budget</h2>
+                <form id="budget-form" class="flex-form">
+                    <div class="input-group">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                        <input type="number" id="budget-input" placeholder="Enter total budget" required min="1">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Set Budget</button>
+                </form>
+            </div>
+
+            <!-- Add Expense Form -->
+            <div class="panel">
+                <h2>Add Expense</h2>
+                <form id="expense-form" class="grid-form">
+                    <div class="input-group">
+                        <i class="fa-solid fa-tag"></i>
+                        <input type="text" id="expense-title" placeholder="Expense Title (e.g., Groceries)" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fa-solid fa-money-bill-wave"></i>
+                        <input type="number" id="expense-amount" placeholder="Amount" required min="1">
+                    </div>
+                    <button type="submit" class="btn btn-secondary">Add Expense</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Ledger / History Table -->
+        <section class="panel ledger-section">
+            <h2>Expense History & Breakdown</h2>
+            <div class="table-wrapper">
+                <table id="expense-table">
+                    <thead>
+                        <tr>
+                            <th>Expense Title</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expense-list">
+                        <!-- Dynamic rows injected by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

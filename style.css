@@ -1,0 +1,180 @@
+/* Custom Properties for Global Theming */
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --panel-bg: rgba(255, 255, 255, 0.03);
+    --panel-border: rgba(255, 255, 255, 0.08);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary: #38bdf8;
+    --secondary: #fb7185;
+    --success: #4ade80;
+    --radius: 16px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.budget-container {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Header styling */
+.budget-header {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.budget-header h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(to right, var(--primary), #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.budget-header p {
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Glass Panels */
+.panel, .card {
+    background: var(--panel-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--panel-border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Dashboard Metrics Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+.card h3 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+.card p {
+    font-size: 2rem;
+    font-weight: 700;
+}
+.total-budget p { color: var(--primary); }
+.total-expenses p { color: var(--secondary); }
+.net-balance.positive p { color: var(--success); }
+.net-balance.negative p { color: var(--secondary); }
+
+/* Management Grid layout */
+.management-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+.panel h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+}
+
+/* Forms & Modern Inputs */
+.flex-form, .grid-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.input-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.input-group i {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+}
+.input-group input {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--panel-border);
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+/* Advanced Buttons */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn-primary { background: var(--primary); color: #0f172a; }
+.btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn-secondary { background: transparent; border: 1px solid var(--secondary); color: var(--secondary); }
+.btn-secondary:hover { background: var(--secondary); color: white; }
+
+/* Responsive Interactive Table */
+.table-wrapper {
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+th, td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--panel-border);
+}
+th {
+    color: var(--text-muted);
+    font-weight: 500;
+}
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--secondary);
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+.delete-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Responsiveness adjustments */
+@media (max-width: 480px) {
+    .management-grid { grid-template-columns: 1fr; }
+}
